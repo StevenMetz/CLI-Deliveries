@@ -1,15 +1,15 @@
 ### Create Method to count vowels inside drivers name when street is even
 def even_street(name)
-  @vowels = 0
+  vowels = 0
   index = 0
   while index < name.length
     if name[index] =~ /[aeiou]/ # uses regex to determine if string index is a vowel
-      @vowels += 1
+      vowels += 1
     end
     index += 1
   end
-  @ss_vowels = @vowels * 1.5
-  return ss
+  @ss_vowels = vowels * 1.5
+  return @ss_vowels
 end
 
 # for odd street length
@@ -25,12 +25,28 @@ def odd_street(name)
   return @consts  #only returns consts because ss is multiplied * 1
 end
 
-def special_odd
-  ss = @const + (@const * 0.05)
+def vowels?(name)
+  vowels = 0
+  index = 0
+  while index < name.length
+    if name[index] =~ /[aeiou]/ # uses regex to determine if string index is a vowel
+      vowels += 1
+    end
+    index += 1
+  end
+  return vowels
 end
 
-def special_even
-  ss = @ss_vowels + (@ss_vowels * 0.05)
+def consts?(name)
+  consts = 0
+  index = 0
+  while index < name.length
+    if name[index] !~ /[aeiou]/ # uses regex to determin if string index is not a vowel
+      consts += 1
+    end
+    index += 1
+  end
+  return consts
 end
 
 #puts the addresses into even and odd addresses
@@ -39,7 +55,7 @@ def make_two_new_arrays_for_addresses(addresses)
   @odd_address = []
   @even_address = []
   addresses.each do |address|
-    if address.strip.length.odd?
+    if address.gsub(/\s+/, "").length % 2 != 0
       @odd_address << address
     else
       @even_address << address
@@ -48,17 +64,18 @@ def make_two_new_arrays_for_addresses(addresses)
 end
 
 # sorts array by the vowels
+
 def sort_by_vowels(names)
   names.sort_by! { |str| str.count("aeiouAEIOU") }
   @names_vowels = names.reverse
-  return @names
+  return @names_vowels
 end
 
 #sorts names by their consonants
 def sort_by_consonants(names)
   names.sort_by! { |str| str.scan(/[^aeiou]/).size }
   @names_cons = names.reverse
-  return names
+  return @names_cons
 end
 
 # split the names to evens and odds
@@ -67,7 +84,7 @@ def split_names_to_evens_and_odds(names)
   @even_names = []
   @odd_names = []
   names.each do |name|
-    if name.strip.length.even?
+    if name.gsub(/\s+/, "").length % 2 == 0
       @even_names << name
     else
       @odd_names << name
