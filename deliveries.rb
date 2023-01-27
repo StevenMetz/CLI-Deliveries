@@ -19,15 +19,19 @@ def read_addresses(file)
 end
 
 #Main Program
+
 puts "Enter name of file containing names:"
-name_file = gets.chomp
-names = read_names(name_file)
+name_file = gets.chomp # gets names from user with file
+names = read_names(name_file) # puts those names into an array
 
 puts "Enter name of file containing addresses:"
-address_file = gets.chomp
-addresses = read_addresses(address_file)
+address_file = gets.chomp # gets addresses from the user
+addresses = read_addresses(address_file) # puts addresses into array
+make_two_new_arrays_for_addresses(addresses) # This puts our address array into odds and evens.
 # sort_by_consonants(@names)
 # sort_by_vowels(@names)
-make_two_new_arrays(addresses)
-p @even_address, "even addresses"
-p @odd_address, "odd addresses"
+split_names_to_evens_and_odds(names)
+p "even addresses", @even_address
+p "odd addresses", @odd_address
+p "even Names", @even_names
+p "odd Names", @odd_names

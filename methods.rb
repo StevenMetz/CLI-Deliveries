@@ -35,7 +35,7 @@ end
 
 #puts the addresses into even and odd addresses
 
-def make_two_new_arrays(addresses)
+def make_two_new_arrays_for_addresses(addresses)
   @odd_address = []
   @even_address = []
   addresses.each do |address|
@@ -59,4 +59,18 @@ def sort_by_consonants(names)
   names.sort_by! { |str| str.scan(/[^aeiou]/).size }
   @names_cons = names.reverse
   return names
+end
+
+# split the names to evens and odds
+
+def split_names_to_evens_and_odds(names)
+  @even_names = []
+  @odd_names = []
+  names.each do |name|
+    if name.strip.length.even?
+      @even_names << name
+    else
+      @odd_names << name
+    end
+  end
 end
