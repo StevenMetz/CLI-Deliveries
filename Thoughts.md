@@ -21,4 +21,4 @@ Make Methods to determine the SS in a seperate file inside folder
 
 ### sixth
 
-split the names array into two one being of vowels and on being of consonants based on checking which is greater the vowels or consonants and ones that are equal will be moved to vowels with the greater chance of exploiting the SS.
+split the names array into two one being of vowels and on being of consonants based on checking which is greater the vowels or consonants and ones that are equal will be moved to vowels with the greater chance of exploiting the SS. this will be done until even of vowels are the same as even streets or until there are names with vowels contain less than the

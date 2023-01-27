@@ -26,10 +26,8 @@ names = read_names(name_file)
 puts "Enter name of file containing addresses:"
 address_file = gets.chomp
 addresses = read_addresses(address_file)
-sort_by_consonants(@names)
-sort_by_vowels(@names)
+# sort_by_consonants(@names)
+# sort_by_vowels(@names)
 make_two_new_arrays(addresses)
-p @names_cons, "names consonants"
-p @names_vowels, "names vowels"
 p @even_address, "even addresses"
 p @odd_address, "odd addresses"

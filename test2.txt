@@ -1,3 +1,7 @@
 mains street, 
 chestnut lane, 
-How we do it
+Western lane,
+eastern lane,
+north avenue,
+south street,
+east boulevard
