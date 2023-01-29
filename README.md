@@ -16,6 +16,8 @@ CLI that pairs names with addresses based on their SS score and prints the names
 [SS,["name","address"]]
 ```
 
+your addresses and names file must be added to this folder to work.
+
 ## How to run
 
 First pull down from this git repository with
