@@ -102,12 +102,10 @@ if names_left.length != 0 && @even_address.length != 0 # Make sure both arrays a
   end
 end
 if names_left.length != 0 && @odd_address.length != 0 # check that there are names and odd addresses left
-  puts "hello"
   names_left = sort_by_consonants(names_left) # names with most consonats are first
   index = 0 # set index back to 0
   while index < @odd_address.length # loop through array
     if names_left[index] != nil # check to make sure names and addresses aren't empty
-      puts "hi again"
       ss = odd_street(names_left[index]) # set base ss
       ss_keys << ss # move ss to ss keys
       address_name[names_left[index]] = @odd_address[index] # make names and address pairs

@@ -126,5 +126,4 @@ def read_addresses(file)
   addresses
 end
 
-name = ["odd", "odd"]
-p odd_street(name[0])
+
