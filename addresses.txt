@@ -6,4 +6,5 @@ north avenue,
 south street,
 east boulevard,
 even,
-eveneven
+eveneven,
+odd 
