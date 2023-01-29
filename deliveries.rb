@@ -45,6 +45,7 @@ if sorted_even_names_by_vowels.length != 0 # check to see if even names aren't e
       address_name[sorted_even_names_by_vowels[index]] = @even_address[index] # pairs name and address in address name variable
       @even_address[index] = nil  #changes used address to nil
       sorted_even_names_by_vowels[index] = nil # changes used names to nil
+
       # removes all nil from array
       @even_address.compact!
       sorted_even_names_by_vowels.compact!
@@ -54,8 +55,8 @@ if sorted_even_names_by_vowels.length != 0 # check to see if even names aren't e
 end
 names_left = []  # Variable declared to put left over names in
 # Conditional to see if either even_address is empty or even_names is empty then if even address
-if @even_address.length == 0 && @even_names.length != 0
-  @even_names.each do |i| #loops through even names array
+if @even_address.length == 0 && sorted_even_names_by_vowels.length != 0
+  sorted_even_names_by_vowels.each do |i| #loops through even names array
     names_left << i  # moves names left over into new array
   end
 end
@@ -78,8 +79,8 @@ if sorted_odd_names.length != 0 # check to make sure there are odd names in arra
   end
 end
 # check if odd addresses are empty and if odd names are not empty
-if @odd_address.length == 0 && @odd_names.length != 0
-  @odd_names.each do |i|
+if @odd_address.length == 0 && sorted_odd_names.length != 0
+  sorted_odd_names.each do |i|
     # moves odd names left over to new variable
     names_left << i
   end
@@ -91,7 +92,7 @@ if names_left.length != 0 && @even_address.length != 0 # Make sure both arrays a
   if vowels?(names_left[0]) > consts?(names_left[0])
     index = 0 # index variable reset to 0
     while index < @even_address.length # loop though addresses
-      if names_left.length != 0 && @even_address.length != 0
+      if names_left[index] != nil
         ss = even_street(names_left[index]) # set base SS
         ss_keys << ss # move SS to SS keys for pairing
         address_name[names_left[index]] = @even_address[index] # pair name and address into hash
@@ -118,4 +119,3 @@ ss_with_delivery = ss_keys.zip(address_name).sort.reverse # pairs the keys to th
 ss_total = ss_keys.sum # adds all the ss together to get total
 p ss_with_delivery # prints the names with their perspective ss to terminal
 p ss_total # prints the total ss to terminal
-p @odd_address
